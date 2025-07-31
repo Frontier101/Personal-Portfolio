@@ -1,0 +1,222 @@
+:root{
+    --main-clr:#1A4D5B;
+    --second-clr:#9ab633;
+    --text-clr:#5B1A4D;
+    --clr-2:#0D272D;
+}
+*, ::before, ::after{
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+html{
+    font-size: 20px;
+}
+body{
+    margin:0;
+    font-family: raleway, sans-serif;
+    background-color:var(--main-clr);
+    color:#fff;
+}
+/* header */
+#navbar{
+    position:sticky;
+    top:0;
+    z-index:1;
+    justify-content:space-between;
+    padding:0.5rem 3rem;
+    background-color:var(--second-clr);
+    box-shadow: 0 .2rem .3rem #808080;
+    border-radius: .25rem;
+}
+.nav-link, #profile{
+    font-weight: 400;
+    color:var(--text-clr);
+}
+#profile::before{
+    width:2.5rem;
+    height:2.5rem;
+    margin-right:.5rem;
+    background-image: url('https://avatars.githubusercontent.com/u/152177081?v=4');
+}
+.nav-link:hover, #profile:hover{
+    font-weight: 600; 
+}
+#nav-links{
+    justify-content:space-between;
+    gap:2rem;
+}
+/* End of header */
+
+/* Welcome section */
+#welcome-section{
+    height:100vh;
+    padding:5rem 3rem;
+    justify-content:center;
+    gap:5rem;
+}
+#welcome h1{
+    font-size:2.5rem;
+}
+#welcome p{
+    font-size: .8rem;
+    font-style: italic;
+    margin-top:-1rem;
+    margin-bottom: 2rem;
+}
+#skills summary{
+    width:fit-content;
+    padding:.5rem;
+    cursor:pointer;
+    font-weight:600;
+    background-color:#000;
+    transition: transform 1s ease;
+}
+#skills summary:hover{
+    background-color:var(--clr-2);
+}
+details[open] summary{
+    transform: translateX(2rem);
+}
+li{
+    margin:1rem;
+    list-style: none;
+}
+/* End of Welcome Section */
+
+/* Projects section */
+#projects{
+    background-color:var(--clr-2);
+    padding: 3rem 1rem;
+}
+#projects h1{
+    text-decoration: underline;
+    text-align:center;
+}
+#projects-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(15rem, 1fr));
+    gap:2rem;
+    width:clamp(20rem, 100%, 60rem);
+    margin: 0 auto;
+    padding:2rem 1rem;
+}
+.project-tile{
+    height: 20rem;
+    text-align:center;
+    background-color:var(--text-clr);
+    border-radius: 1rem;
+    box-shadow: .1rem .1rem .5rem var(--main-clr);
+}
+.prj-scrshot{
+    width:100%;
+    height: calc(100% - 4rem);
+    object-fit: cover;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+.arrow{
+    transform : translateX(.5rem);
+    position:absolute;
+    transition: transform .5s ease;
+}
+.project-link:hover .arrow{
+    transform : translateX(1rem);
+}
+/* End of Projects section */
+
+/* socials */
+#socials{
+    height:clamp(20rem, 50vh, 60rem);
+    align-content: center;
+    text-align:center;
+}
+#socials h1{
+    text-decoration: underline;
+}
+#socials-container{
+    width:100%;
+    margin:0 auto;
+    padding:2rem;
+    justify-content:center;
+    gap:5rem;
+    flex-wrap: wrap;
+}
+.social{
+    position: relative;
+    padding:.3rem;
+    transition: transform .3s ease;
+
+}
+.social:hover{
+    transform: translateY(.3rem);
+    
+}
+.social::before{
+    position: absolute;
+    left:-1.3rem;
+    width:1.2rem;
+    height:1.2rem;
+}
+#github::before{
+    background-image:url('https://github.com/Frontier101/screenshots/blob/main/github.png?raw=true');
+}
+#freecode::before{
+    background-image: url('https://github.com/Frontier101/screenshots/blob/main/fire.png?raw=true');
+}
+#linkedin::before{
+    background-image: url('https://github.com/Frontier101/screenshots/blob/main/linkedin.png?raw=true');
+}
+#facebook::before{
+    background-image: url('https://github.com/Frontier101/screenshots/blob/main/facebook.png?raw=true');
+}
+/* End of socials */
+
+/* footer */
+footer{
+    border-top: .3rem solid var(--second-clr);
+    text-align:center;
+}
+/* End of footer */
+
+/* common styles */
+a{
+    text-decoration:none;
+    color:#fff;
+    font-weight: 600;
+}
+a:hover{
+    text-decoration: underline;
+}
+
+.flex{
+    display:flex;
+    align-items:center;
+}
+.before::before{
+    content:'';
+    display:inline-block;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius:50%;
+}
+
+/* media queries */
+@media screen and (max-width : 620px){
+    html{
+    font-size:10px;
+    }
+    #nav-links{
+    flex-direction:column;
+    gap:.5rem;
+    }
+    #navbar{
+    justify-content:space-around;
+    }
+}
+
+@media screen and (max-width : 420px){
+    #navbar{
+    flex-direction: column;
+    gap:.5rem;
+    }
+}
